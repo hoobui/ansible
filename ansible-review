@@ -1,0 +1,16 @@
+yum -y install ansible      #网络yum
+
+ansible.cfg 的查找顺序是 
+1  ANSIBLE_CONFIG 变量定义的配置文件
+2 当前目录下的 ./ansible.cfg 文件
+3 前用户家目录下 ~/ansible.cfg 文件
+4 /etc/ansible/ansible.cfg 文件
+
+ansible  命令基础
+ansible  主机分组  -m 模块  -a '命令和参数'
+
+创建密钥对 id_rsa 是私钥，  id_rsa.pub 是公钥
+ssh-keygen -t rsa -b 2048 -N ''
+
+给所有主机部署密钥
+ansible all -m authorized_key -a "user=root exclusive=true manage_dir=true key='$(< /root/.ssh/id_rsa.pub)'" -k
