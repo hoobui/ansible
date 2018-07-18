@@ -1,4 +1,3 @@
-作业讲解和回顾
 
 1 在 web 上安装 apache
 ansible web -m yum -a 'name="httpd" state=installed'
